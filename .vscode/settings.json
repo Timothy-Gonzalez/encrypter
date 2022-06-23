@@ -2,5 +2,8 @@
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"cSpell.words": ["ciphertext", "encrypter", "hasher"],
 	"svg.preview.background": "editor",
-	"editor.rulers": [100] // Rulers are at 100. Print width is a guide, rulers are an absolute.
+	"editor.rulers": [100], // Rulers are at 100. Print width is a guide, rulers are an absolute.
+	"yaml.schemas": {
+		"https://json.schemastore.org/github-workflow.json": ".github/workflows/*"
+	}
 }

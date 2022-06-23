@@ -1,0 +1,29 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build Site
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          path: main
+      - uses: actions/checkout@v3
+        with:
+          ref: refs/heads/build
+          path: build
+      - name: Build Site
+        run: |
+          rm build/*
+          cp main/src/* build
+      - name: Publish to build branch
+        run: |
+          cd build
+          git commit -am "Build ${{ github.sha }}"
+          git push -f origin build
