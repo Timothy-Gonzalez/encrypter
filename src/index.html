@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Encrypter</title>
+		<link rel="stylesheet" href="css/main.css" />
+		<link rel="icon" href="icon.png" />
+
+		<script src="js/cryptojs/core-min.js"></script>
+		<script src="js/cryptojs/md5-min.js"></script>
+		<script src="js/cryptojs/evpkdf-min.js"></script>
+		<script src="js/cryptojs/lib-typedarrays-min.js"></script>
+		<script src="js/cryptojs/enc-base64-min.js"></script>
+		<script src="js/cryptojs/cipher-core-min.js"></script>
+		<script src="js/cryptojs/aes-min.js"></script>
+		<script src="js/cryptojs/mode-ctr-min.js"></script>
+		<script src="js/cryptojs/pad-ansix923-min.js"></script>
+		<script src="js/cryptojs/x64-core-min.js"></script>
+		<script src="js/cryptojs/sha512-min.js"></script>
+		<script src="js/cryptojs/hmac-min.js"></script>
+		<script src="js/cryptojs/pbkdf2-min.js"></script>
+
+		<script src="js/main.js"></script>
+	</head>
+
+	<body onload="onLoad()">
+		<div id="body">
+			<div id="top">
+				<img id="title" src="title.png" />
+				<br />
+			</div>
+			<div id="content" style="display: none">
+				<div>
+					<button id="changeMode" class="topButton" onclick="changeMenu(0)">
+						Change Mode
+					</button>
+					<p id="hint">Hint text</p>
+				</div>
+
+				<p class="info">Keyword</p>
+				<input
+					id="keyword"
+					class="field"
+					type="password"
+					placeholder="Enter keyword..."
+				/>
+				<button
+					id="keywordVisibility"
+					class="imageButton"
+					onclick="changeKeywordVisibility()"
+				>
+					<svg>
+						<use href="res/defs.svg#eye"></use>
+					</svg>
+					<p>Show</p>
+				</button>
+				<p class="smallInfo">
+					A keyword is used to encrypt and decrypt. It's like a password to
+					translate between encrypted and decrypted information.
+				</p>
+
+				<p id="headerPart2" class="info">The Text</p>
+				<p id="hint2" class="smallInfo">Helpful info here</p>
+				<textarea
+					id="input"
+					class="field"
+					placeholder="To exist... or to not exist, that is the question."
+				></textarea>
+				<div id="filePicker">
+					<button
+						id="filePickerUpload"
+						class="filePickerButton"
+						onclick="uploadFile()"
+					>
+						Upload File
+					</button>
+					<p>or</p>
+					<button
+						id="filePickerCreate"
+						class="filePickerButton"
+						onclick="createFile()"
+					>
+						Create File
+					</button>
+					<hr />
+					<p id="filePickerText"></p>
+				</div>
+				<div id="fileCreator">
+					<div onclick="finalizeCreateFile(false)"></div>
+					<div>
+						<div>
+							<p class="info">File Name & Extension</p>
+							<p class="smallInfo">
+								To create a file, choose a file name (like file) and an
+								extension (like txt).
+							</p>
+							<hr />
+							<input
+								id="fileCreatorNameInput"
+								class="field"
+								type="text"
+								placeholder="Enter file name..."
+							/>
+							<p id="fileCreatorDot">.</p>
+							<input
+								id="fileCreatorExtensionInput"
+								class="field"
+								type="text"
+								placeholder="Enter file extension..."
+							/>
+							<hr />
+							<p class="info">Contents</p>
+							<p class="smallInfo">
+								Then, enter the contents of your new file, like 'The secret base
+								is at (1, 2)'.<br />When you're finished, simply press the
+								'Create File' button.
+							</p>
+							<textarea
+								id="fileCreatorInput"
+								class="field"
+								placeholder="Enter contents of the file..."
+							></textarea>
+							<hr />
+							<button onclick="finalizeCreateFile(true)">Create File</button>
+							<button onclick="finalizeCreateFile(false)">Cancel</button>
+						</div>
+					</div>
+				</div>
+				<button id="activateButton">Do Stuff!</button>
+				<p id="outputHint" class="info"></p>
+				<div id="output" class="smallInfo" data-visible="false">
+					<p></p>
+					<button
+						id="outputVisibility"
+						class="imageButton"
+						onclick="changeOutputVisibility()"
+					>
+						<svg>
+							<use href="res/defs.svg#eye"></use>
+						</svg>
+						<p>Show</p>
+					</button>
+				</div>
+				<div id="textButtons">
+					<button
+						id="clipboardCopy"
+						class="imageButton"
+						onclick="copyToClipboard()"
+					>
+						<svg>
+							<use href="res/defs.svg#copy"></use>
+						</svg>
+						<p>Copy To Clipboard</p>
+					</button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
