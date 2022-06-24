@@ -5,5 +5,8 @@
 	"editor.rulers": [100], // Rulers are at 100. Print width is a guide, rulers are an absolute.
 	"yaml.schemas": {
 		"https://json.schemastore.org/github-workflow.json": ".github/workflows/*"
+	},
+	"[svg]": {
+		"editor.defaultFormatter": "jock.svg"
 	}
 }
