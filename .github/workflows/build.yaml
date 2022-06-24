@@ -30,5 +30,6 @@ jobs:
       - name: Publish to build branch
         run: |
           cd build
-          git commit -am "Build ${{ github.sha }}"
+          git add *
+          git commit -m "Build ${{ github.sha }}"
           git push -f origin build
