@@ -20,6 +20,7 @@ jobs:
           path: build
       - name: Build Site
         run: |
+          ls
           rm build/*
           cp main/src/* build
       - name: Publish to build branch
