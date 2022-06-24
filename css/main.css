@@ -24,6 +24,60 @@ body {
 	min-height: 100vh;
 	min-width: 100%;
 	margin: 0px;
+	display: flex;
+	flex-direction: column;
+}
+
+footer {
+	--font-size: 20px;
+	--image-size: 20px;
+	--padding: 5px;
+
+	margin-top: auto;
+
+	padding-bottom: 10px;
+}
+
+footer svg {
+	display: inline;
+	width: var(--image-size);
+	height: var(--image-size);
+}
+
+footer li {
+	display: inline;
+	font-size: var(--font-size);
+}
+
+footer a {
+	position: relative;
+	display: inline;
+	text-decoration: none;
+
+	transition: color 0.25s;
+}
+
+footer p {
+	display: inline;
+}
+
+.footerBarrier {
+	margin: 0 2.5px;
+}
+
+.footerLinkWithImage svg {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translate(0%, -50%);
+}
+
+.footerLinkWithImage {
+	padding-left: calc(var(--image-size) + var(--padding));
+}
+
+footer a:hover {
+	color: #ff7637;
 }
 
 button {

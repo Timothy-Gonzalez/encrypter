@@ -178,5 +178,42 @@
 				</button>
 			</div>
 		</div>
+		<footer>
+			<ul>
+				<li>
+					<a
+						class="footerLinkWithImage"
+						href="https://github.com/Timothy-Gonzalez/encrypter"
+						target="_blank"
+						rel="noopener"
+					>
+						<svg>
+							<use href="res/defs.svg#github"></use>
+						</svg>
+						<p>View Source</p></a
+					>
+				</li>
+				<li class="footerBarrier">|</li>
+				<li id="copyright">
+					<a
+						href="https://timothy-gonzalez.com/"
+						target="_blank"
+						rel="noopener"
+					>
+						<p class="footerNoHighlight">© 2021-Present</p>
+						<p>Timothy Gonzalez</p>
+					</a>
+				</li>
+			</ul>
+			<script>
+				const copyright = document
+					.getElementById("copyright")
+					.querySelector("p")
+				copyright.innerText = copyright.innerText.replace(
+					"2021-Present",
+					new Date().getFullYear()
+				)
+			</script>
+		</footer>
 	</body>
 </html>
