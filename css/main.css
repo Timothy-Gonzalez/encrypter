@@ -92,17 +92,118 @@ button {
 
 #top,
 #content {
-	padding: 20px;
+	--padding: 20px;
+
+	padding: var(--padding);
 }
 
 #top {
-	display: flex;
+	--title-animation-length: 0.75s;
+	--button-animation-length: 0.5s;
+	--primary-button-animation-delay: calc(0.625 * var(--title-animation-length));
+	--secondary-button-animation-delay: calc(
+		var(--primary-button-animation-delay) + (var(--button-animation-length) / 8)
+	);
+}
+
+#titleDiv {
+	--width: 35vw;
+
+	margin-bottom: 25px;
+
+	/* Calculate height using width * (height / width ratio) */
+	height: calc(var(--width) * (169 / 735));
+
+	overflow: hidden;
+}
+
+#title {
+	width: var(--width);
+
+	position: absolute;
+	left: 50%;
+
+	transform: translate(-50%, 0%);
+
+	z-index: 1;
+}
+
+.playIntroAnimation #title {
+	animation: titleIn var(--title-animation-length) ease;
+}
+
+@media (max-width: 1500px) {
+	#titleDiv {
+		--width: 45vw;
+	}
+}
+
+@media (max-width: 1200px) {
+	#titleDiv {
+		--width: 50vw;
+	}
+}
+
+@media (max-width: 800px) {
+	#titleDiv {
+		--width: 80vw;
+	}
+}
+
+@media (max-width: 500px) {
+	#titleDiv {
+		--width: 100vw;
+	}
+}
+
+@keyframes titleIn {
+	0% {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		opacity: 0;
+		transform: translate(-50%, -50%) scale(0.5);
+	}
+	50% {
+		top: 50%;
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1);
+	}
+	100% {
+		position: fixed;
+		top: var(--padding);
+		left: 50%;
+		transform: translate(-50%, 0%);
+	}
 }
 
 .topButton {
 	font-size: 50px;
 	margin: 10px;
 	padding: 10px;
+}
+
+.playIntroAnimation #topButtons button {
+	transform: scale(0);
+
+	animation: topButtonPopIn var(--button-animation-length) ease
+		var(--primary-button-animation-delay) forwards;
+}
+
+.topButton:nth-child(4),
+.topButton:nth-child(5) {
+	animation-delay: var(--secondary-button-animation-delay) !important;
+}
+
+@keyframes topButtonPopIn {
+	from {
+		opacity: 0;
+		transform: scale(0.5);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
 }
 
 #changeMode {
@@ -343,32 +444,6 @@ textarea {
 #keywordVisibility {
 	display: inline;
 	--padding: 5px;
-}
-
-#title {
-	object-fit: contain;
-	width: 30%;
-	margin-bottom: 25px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-@media (max-width: 1200px) {
-	#title {
-		width: 50%;
-	}
-}
-
-@media (max-width: 800px) {
-	#title {
-		width: 80%;
-	}
-}
-
-@media (max-width: 500px) {
-	#title {
-		width: 100%;
-	}
 }
 
 #keyword {

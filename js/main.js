@@ -1,4 +1,5 @@
 let topDiv,
+	topButtons,
 	contentDiv,
 	hint,
 	hint2,
@@ -607,9 +608,9 @@ function createDisplayButtons() {
 			smallInfo.innerText = display.Hint
 
 			button.appendChild(smallInfo)
-			topDiv.appendChild(button)
+			topButtons.appendChild(button)
 		} else {
-			topDiv.appendChild(document.createElement("br"))
+			topButtons.appendChild(document.createElement("br"))
 		}
 	}
 }
@@ -622,6 +623,9 @@ function changeMenu(num) {
 
 	if (num > 0) {
 		//Not main menu
+
+		// Prevent further display of intro animation
+		document.body.classList.remove("playIntroAnimation")
 
 		//Get display
 		const display = DISPLAYS[num]
@@ -663,6 +667,7 @@ function changeMenu(num) {
 
 function onLoad() {
 	topDiv = document.getElementById("top")
+	topButtons = document.getElementById("topButtons")
 	contentDiv = document.getElementById("content")
 	hint = document.getElementById("hint")
 	hint2 = document.getElementById("hint2")
