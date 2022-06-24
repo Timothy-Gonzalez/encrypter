@@ -87,20 +87,22 @@ const DISPLAYS = [
 
 const METHODS = {
 	Encrypt: {
+		Id: "Encrypt",
 		WaitingText: "Encrypting...",
 		DoneText: "Encrypted Message:",
 		SerializeInput: false,
-		LimitToEncrypted: false,
+		LimitFileSelectionToEncrypted: false,
 		Function: encrypt,
 		TransformFileName: (fileName) => {
 			return fileName + ENCRYPTED_EXTENSION
 		},
 	},
 	Decrypt: {
+		Id: "Decrypt",
 		WaitingText: "Decrypting...",
 		DoneText: "Decrypted Message:",
 		SerializeInput: true,
-		LimitToEncrypted: true,
+		LimitFileSelectionToEncrypted: true,
 		Function: decrypt,
 		TransformFileName: (fileName) => {
 			let lastIndex = fileName.lastIndexOf(ENCRYPTED_EXTENSION)
@@ -227,7 +229,7 @@ function finalizeCreateFile(confirm) {
  *
  * @returns {string} The result message to display
  */
-async function outputFile(suggestedName, content, limitToEncrypted) {
+async function outputFile(suggestedName, content, limitToEncrypted, id) {
 	const a = document.createElement("a")
 
 	const blob = new Blob([content])
@@ -236,6 +238,8 @@ async function outputFile(suggestedName, content, limitToEncrypted) {
 	if ("showSaveFilePicker" in window) {
 		const options = {
 			suggestedName: suggestedName,
+			startIn: "downloads",
+			id: id,
 		}
 
 		if (limitToEncrypted) {
@@ -561,7 +565,12 @@ function handleFileMethod(method) {
 			}
 
 			const resultFileName = method.TransformFileName(fileName)
-			outputFile(resultFileName, result, method.LimitToEncrypted)
+			outputFile(
+				resultFileName,
+				result,
+				method.LimitFileSelectionToEncrypted,
+				method.Id
+			)
 				.then(outputText)
 				.catch(() => outputText("Save canceled."))
 		})
