@@ -608,6 +608,7 @@ function createDisplayButtons() {
 function changeMenu(num) {
 	clearOutput()
 	inputInput.value = ""
+	inputFileData = null
 	mode = num
 
 	if (num > 0) {
