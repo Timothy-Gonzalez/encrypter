@@ -22,7 +22,7 @@ jobs:
         run: |
           ls
           rm build/* -f
-          cp main/src/* build
+          cp -r main/src/* build
       - name: Publish to build branch
         run: |
           cd build
