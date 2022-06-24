@@ -21,7 +21,7 @@ jobs:
       - name: Build Site
         run: |
           ls
-          rm build/*
+          rm build/* -f
           cp main/src/* build
       - name: Publish to build branch
         run: |
