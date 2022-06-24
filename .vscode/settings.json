@@ -1,6 +1,6 @@
 {
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
-	"cSpell.words": ["ciphertext", "encrypter", "hasher"],
+	"cSpell.words": ["ciphertext", "encrypter", "hasher", "nojekyll"],
 	"svg.preview.background": "editor",
 	"editor.rulers": [100], // Rulers are at 100. Print width is a guide, rulers are an absolute.
 	"yaml.schemas": {

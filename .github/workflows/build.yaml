@@ -27,6 +27,7 @@ jobs:
           ls
           rm build/* -rf
           cp -r main/src/* build
+          touch .nojekyll
       - name: Publish to build branch
         run: |
           cd build
