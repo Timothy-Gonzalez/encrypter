@@ -251,8 +251,6 @@ async function outputFile(suggestedName, content, limitToEncrypted) {
 
 		const writable = await handle.createWritable()
 
-		console.log(content)
-
 		await writable.write(blob)
 
 		await writable.close()
