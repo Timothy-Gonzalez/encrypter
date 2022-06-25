@@ -92,7 +92,7 @@ const METHODS = {
 		WaitingText: "Encrypting...",
 		DoneText: "Encrypted Message:",
 		SerializeInput: false,
-		LimitFileSelectionToEncrypted: false,
+		LimitFileSaveToEncrypted: true,
 		Function: encrypt,
 		TransformFileName: (fileName) => {
 			return fileName + ENCRYPTED_EXTENSION
@@ -103,7 +103,7 @@ const METHODS = {
 		WaitingText: "Decrypting...",
 		DoneText: "Decrypted Message:",
 		SerializeInput: true,
-		LimitFileSelectionToEncrypted: true,
+		LimitFileSaveToEncrypted: false,
 		Function: decrypt,
 		TransformFileName: (fileName) => {
 			let lastIndex = fileName.lastIndexOf(ENCRYPTED_EXTENSION)
