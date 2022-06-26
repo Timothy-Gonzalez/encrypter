@@ -164,6 +164,8 @@ button:hover {
 	transform: translate(-50%, 0%);
 
 	z-index: 1;
+
+	transition: transform 0.25s;
 }
 
 @media (max-width: 1500px) {
@@ -213,6 +215,11 @@ button:hover {
 		left: 50%;
 		transform: translate(-50%, 0%);
 	}
+}
+
+#title:hover {
+	transform: translateX(-50%) scale(1.25);
+	cursor: pointer;
 }
 
 .topButton {
