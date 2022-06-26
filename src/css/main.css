@@ -81,6 +81,27 @@ footer a:hover {
 	color: var(--highlight-color);
 }
 
+.playIntroAnimation footer {
+	--animation-length: 0.5s;
+	--animation-delay: 0.6s;
+
+	opacity: 0;
+
+	animation: footerIntro var(--animation-length) ease var(--animation-delay)
+		forwards;
+}
+
+@keyframes footerIntro {
+	from {
+		opacity: 0;
+		transform: scale(0.5);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
 button {
 	--border-light: 2px solid rgba(255, 255, 255, 0.5);
 	--border-dark: 2px solid rgba(0, 0, 0, 0.5);
@@ -145,10 +166,6 @@ button:hover {
 	z-index: 1;
 }
 
-.playIntroAnimation #title {
-	animation: titleIn var(--title-animation-length) ease;
-}
-
 @media (max-width: 1500px) {
 	#titleDiv {
 		--width: 45vw;
@@ -173,7 +190,11 @@ button:hover {
 	}
 }
 
-@keyframes titleIn {
+.playIntroAnimation #title {
+	animation: titleIntro var(--title-animation-length) ease;
+}
+
+@keyframes titleIntro {
 	0% {
 		position: fixed;
 		top: 50%;
@@ -200,10 +221,14 @@ button:hover {
 	padding: 10px;
 }
 
+.topButton p {
+	color: inherit;
+}
+
 .playIntroAnimation #topButtons button {
 	transform: scale(0);
 
-	animation: topButtonPopIn var(--button-animation-length) ease
+	animation: topButtonIntro var(--button-animation-length) ease
 		var(--primary-button-animation-delay) forwards;
 }
 
@@ -212,11 +237,7 @@ button:hover {
 	animation-delay: var(--secondary-button-animation-delay) !important;
 }
 
-.topButton p {
-	color: inherit;
-}
-
-@keyframes topButtonPopIn {
+@keyframes topButtonIntro {
 	from {
 		opacity: 0;
 		transform: scale(0.5);
