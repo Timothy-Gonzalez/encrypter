@@ -227,6 +227,7 @@ function finalizeCreateFile(confirm) {
  * @param {string} suggestedName The suggested file name to output as
  * @param {ArrayBuffer} content The content to be output
  * @param {boolean} limitToEncrypted If true, only files with the {@link ENCRYPTED_EXTENSION} will be shown
+ * @param {string} id The id to remember the save file picker's last location as
  *
  * @returns {string} The result message to display
  */
